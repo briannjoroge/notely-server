@@ -11,7 +11,7 @@ const app = express();
 const allowedrigins = [
   "http://localhost:5173",
   "http://localhost:5174",
-  "https://notely-server-2.onrender.com",
+  "https://notely-client-iota.vercel.app",
 ];
 
 app.use(
