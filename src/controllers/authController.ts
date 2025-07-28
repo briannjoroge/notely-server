@@ -68,7 +68,7 @@ export const registerUser = async (req: Request, res: Response) => {
     });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ message: "Something Went Wrong!" });
+    res.status(500).json({ message: "Something Went Wrong!", err });
   }
 };
 
@@ -118,7 +118,8 @@ export const loginUser = async (req: Request, res: Response) => {
         lastProfileUpdate: user.lastProfileUpdate,
       },
     });
-  } catch {
-    res.status(500).json({ message: "Login failed" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Login failed", err });
   }
 };
