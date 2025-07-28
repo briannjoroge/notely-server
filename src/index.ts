@@ -3,12 +3,16 @@ import express from "express";
 import cors from "cors";
 import authRoutes from "./routes/authRoutes";
 // import noteRoutes from "./routes/noteRoutes";
-// import userRoutes from "./routes/userRoutes";
+import userRoutes from "./routes/userRoutes";
 
 dotenv.config();
 const app = express();
 
-const allowedrigins = ["http://localhost:5173", "http://localhost:5174"];
+const allowedrigins = [
+  "http://localhost:5173",
+  "http://localhost:5174",
+  "https://notely-server-2.onrender.com",
+];
 
 app.use(
   cors({
@@ -20,7 +24,7 @@ app.use(express.json());
 
 app.use("/api/auth", authRoutes);
 // app.use("/api/notes", noteRoutes);
-// app.use("/api/user", userRoutes);
+app.use("/api/user", userRoutes);
 
 const PORT = process.env.PORT || 5000;
 
